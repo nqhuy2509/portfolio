@@ -28,7 +28,8 @@ export type Profile = {
   /** Hai dự án đầu tiên được hiển thị trong lưới bento */
   projects: [Project, Project, ...Project[]];
   email: string;
-  scheduleUrl: string;
+  /** Link đặt lịch gọi (Cal.com, Calendly…). Bỏ trống thì ẩn nút. */
+  scheduleUrl?: string;
   cv: { href: string; updated: string };
   github: SocialLink;
   linkedin: SocialLink;
@@ -51,40 +52,32 @@ export const profile: Profile = {
     years: "3",
     company: "Lybia Software Company",
   },
-  stack: [
-    "[React]",
-    "[Next.js]",
-    "[TypeScript]",
-    "[Tailwind CSS]",
-    "[Node.js]",
-    "[Figma]",
-  ],
+  stack: ["Node.js", "Flutter", "Android", "Kotlin"],
   projects: [
     {
       title: "[Dự án nổi bật 1]",
       stack: "[Công nghệ]",
       year: "[Năm]",
-      href: "https://github.com/[username]/[du-an-1]",
+      href: "https://github.com/nqhuy2509/[du-an-1]",
     },
     {
       title: "[Dự án 2]",
       stack: "[Công nghệ]",
       year: "[Năm]",
-      href: "https://github.com/[username]/[du-an-2]",
+      href: "https://github.com/nqhuy2509/[du-an-2]",
     },
   ],
-  email: "[email@domain.com]",
-  scheduleUrl: "https://cal.com/[username]",
+  email: "nqhuy250901@gmail.com",
   cv: {
     href: "/cv.pdf",
     updated: "[MM/YYYY]",
   },
   github: {
-    handle: "@[username]",
-    href: "https://github.com/[username]",
+    handle: "@nqhuy2509",
+    href: "https://github.com/nqhuy2509",
   },
   linkedin: {
-    handle: "/in/[username]",
-    href: "https://www.linkedin.com/in/[username]",
+    handle: "/in/yuhquan",
+    href: "https://www.linkedin.com/in/yuhquan/",
   },
 };

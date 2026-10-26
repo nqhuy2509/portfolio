@@ -211,9 +211,11 @@ export default function Home() {
               <ButtonLink href={`mailto:${profile.email}`} variant="inverseAccent">
                 {profile.email}
               </ButtonLink>
-              <ButtonLink href={profile.scheduleUrl} {...external} variant="inverse">
-                Đặt lịch gọi
-              </ButtonLink>
+              {profile.scheduleUrl && (
+                <ButtonLink href={profile.scheduleUrl} {...external} variant="inverse">
+                  Đặt lịch gọi
+                </ButtonLink>
+              )}
             </div>
           </Tile>
 
