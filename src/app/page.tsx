@@ -71,10 +71,10 @@ export default function Home() {
             <TileLabel>Đang ở</TileLabel>
             <div className="flex-1" />
             <p className="m-0 font-semi-expanded text-[21px] leading-tight font-extrabold">
-              {profile.location.city}, {profile.location.country}
+              {profile.location.city}
             </p>
             <p className="m-0 font-mono text-[13px] text-ink-soft">
-              {profile.location.timezone}
+              {profile.location.country} · {profile.location.timezone}
             </p>
           </Tile>
 

@@ -35,21 +35,21 @@ export type Profile = {
 };
 
 export const profile: Profile = {
-  name: "[Tên của bạn]",
-  role: "[Vị trí — vd: Frontend Developer]",
-  bio: "[Giới thiệu ngắn 1–2 câu: bạn làm gì, giỏi điều gì, đang tìm cơ hội nào]",
+  name: "Nguyễn Quan Huy",
+  role: "Mobile Developer",
+  bio: "Đang làm việc tại một công ty phần mềm nhỏ và theo học Luật Kinh tế tại UEH. Đang tìm cơ hội để kết nối và trò chuyện về phát triển ứng dụng.",
   status: {
-    label: "Sẵn sàng nhận việc",
-    detail: "[Freelance / Toàn thời gian]",
+    label: "Sẵn sàng kết nối",
+    detail: "Trò chuyện về phát triển ứng dụng",
   },
   location: {
-    city: "[Thành phố]",
-    country: "VN",
+    city: "Quận 9, TP.HCM",
+    country: "Việt Nam",
     timezone: "GMT+7",
   },
   experience: {
-    years: "[x]",
-    company: "[Công ty]",
+    years: "3",
+    company: "Lybia Software Company",
   },
   stack: [
     "[React]",
