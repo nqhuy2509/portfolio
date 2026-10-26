@@ -1,26 +1,123 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Neo-brutalism tokens — phong cách 4 trên canvas thiết kế */
+@theme {
+  --color-cream: #fff8e7;
+  --color-ink: #111111;
+  --color-ink-soft: #3d3d3d;
+  --color-ink-faint: #ede7d6;
+  --color-accent: #ffd23f;
+  --color-blue: #5b8cff;
+  --color-pink: #ff90c8;
+  --color-green: #6ee7a8;
+  --color-sand: #ffe7a3;
+
+  --shadow-brutal-sm: 3px 3px 0 var(--color-ink);
+  --shadow-brutal: 5px 5px 0 var(--color-ink);
+  --shadow-brutal-lg: 8px 8px 0 var(--color-ink);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-space-mono), ui-monospace, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Archivo có trục độ rộng (wdth 62–125) — dùng cho tiêu đề */
+@utility font-expanded {
+  font-stretch: 125%;
+}
+
+@utility font-semi-expanded {
+  font-stretch: 112%;
+}
+
+@utility bg-grid {
+  background-image:
+    linear-gradient(rgb(17 17 17 / 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(17 17 17 / 0.06) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Ô giữ chỗ cho ảnh chưa có */
+@utility bg-cross {
+  background-image:
+    linear-gradient(
+      to top right,
+      transparent calc(50% - 1px),
+      rgb(17 17 17 / 0.25) calc(50% - 1px),
+      rgb(17 17 17 / 0.25) calc(50% + 1px),
+      transparent calc(50% + 1px)
+    ),
+    linear-gradient(
+      to bottom right,
+      transparent calc(50% - 1px),
+      rgb(17 17 17 / 0.25) calc(50% - 1px),
+      rgb(17 17 17 / 0.25) calc(50% + 1px),
+      transparent calc(50% + 1px)
+    );
+}
+
+/* Ô bento bấm được: nhích lên, bóng dài ra */
+@utility lift {
+  transition:
+    translate 150ms ease,
+    box-shadow 150ms ease;
+  &:hover {
+    translate: -3px -3px;
+    box-shadow: var(--shadow-brutal-lg);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+    &:hover {
+      translate: none;
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Nút: nhích lên khi hover, lún xuống khi bấm */
+@utility press {
+  transition:
+    translate 120ms ease,
+    box-shadow 120ms ease;
+  &:hover {
+    translate: -2px -2px;
+    box-shadow: var(--shadow-brutal);
+  }
+  &:active {
+    translate: 3px 3px;
+    box-shadow: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+    &:hover,
+    &:active {
+      translate: none;
+    }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    @apply bg-cream bg-grid font-sans text-ink;
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-blue);
+    outline-offset: 3px;
+  }
 }
